@@ -8,7 +8,8 @@ export class TasksController {
   }
 
   @Post()
-  createTasks( @Body() task ): string {
+  createTasks(@Body() task): string {
+    console.log(task);
     return 'tasks';
   }
 
@@ -18,7 +19,7 @@ export class TasksController {
   }
 
   @Delete()
-  deleteTask(): string { {
+  deleteTask(): string {
     return 'tasks';
   }
 }
