@@ -20,7 +20,7 @@ Este proyecto es una introducción a los conceptos básicos de NestJS, enfocado 
 1. **Clona el repositorio:**
 
    ```bash
-   git clone <url-del-repositorio>
+   git clone https://github.com/felipejrz/signal-store.git)
    ```
 
 2. **Instala las dependencias del proyecto:**

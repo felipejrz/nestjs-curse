@@ -1,34 +1,18 @@
 import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
 import { Task } from './interfaces/Task';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class TasksService {
-  tasks: Task[] = [
-    {
-      id: 1,
-      title: 'Task 1',
-      description: 'This is task 1',
-      done: false,
-    },
-    {
-      id: 2,
-      title: 'Task 2',
-      description: 'This is task 2',
-      done: false,
-    },
-    {
-      id: 3,
-      title: 'Task 3',
-      description: 'This is task 3',
-      done: true,
-    },
-  ];
+  constructor(@InjectModel('Task') private taskModel: Model<Task>) {}
+  // constructor(@InjectModel('Task') private readonly taskModel: Model<Task>) {}
 
-  getTasks(): Task[] {
-    return this.tasks;
+  async getTasks() {
+    return await this.taskModel.find();
   }
 
-  getTask(id: number): Task | undefined {
-    return this.tasks.find((task) => task.id === id);
+  async getTask(id: string) {
+    return await this.taskModel.findById(id);
   }
 }
